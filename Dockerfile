@@ -6,5 +6,6 @@ COPY . .
 
 EXPOSE 5000
 
-RUN npm i -g serve \
+RUN npm update  \
+    && npm i -g serve \
     && serve
