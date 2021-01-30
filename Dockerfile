@@ -1,6 +1,4 @@
-FROM ubuntu
-
-RUN apt-get update && apt-get -y install nodejs npm
+FROM node:8.15.1-alpine as build-stage
 
 WORKDIR /app
 
