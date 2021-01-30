@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:8.15.1-alpine as build-stage
 
 WORKDIR /app
 
@@ -6,7 +6,4 @@ COPY . .
 
 EXPOSE 5000
 
-RUN cd /app \
-    && npm install -g npm@7.5.0  \
-    && npm i -g serve \
-    && serve
+CMD ["/bin/sh", "/app/script/build.sh"]
