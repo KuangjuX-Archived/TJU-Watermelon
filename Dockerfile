@@ -1,4 +1,6 @@
-FROM node:8.15.1-alpine as build-stage
+ARG NODE_VERSION="15.7-alpine3.10"
+
+FROM node:${NODE_VERSION}
 
 WORKDIR /app
 
