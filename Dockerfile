@@ -2,10 +2,12 @@ ARG NODE_VERSION="15.7-alpine3.10"
 
 FROM node:${NODE_VERSION}
 
-WORKDIR /app
+COPY . /daxigua
 
-COPY . .
+RUN npm config set registry https://registry.npm.taobao.org && \
+    npm i -g serve
+
+WORKDIR /daxigua
 
 EXPOSE 5000
-
-CMD ["/bin/sh", "/app/script/build.sh"]
+ENTRYPOINT [ "serve" ]
